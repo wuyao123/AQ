@@ -1,6 +1,9 @@
+import cn.wuyao.dao.CorrUtil;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        CorrUtil c = new CorrUtil();
+        c.selectCorr();
     }
 }
