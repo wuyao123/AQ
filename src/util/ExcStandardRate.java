@@ -1,3 +1,6 @@
+/**
+ * 计算京津冀各城市污染物超标率
+ **/
 package util;
 
 import java.io.BufferedReader;
@@ -17,9 +20,9 @@ import com.csvreader.CsvWriter;
 public class ExcStandardRate {
 
 	public static void main(String[] args) throws IOException {
-		InputStreamReader hebeiIsr = new InputStreamReader(new FileInputStream("F://data//hebei.csv"), "GBK");
+		InputStreamReader hebeiIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//hebei.csv"), "GBK");
 		BufferedReader hebeiCsv = new BufferedReader(hebeiIsr);
-		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("F://data//ExcStandardRate.csv"),"GBK");
+		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//ExcStandardRate.csv"),"GBK");
 	    BufferedWriter writer = new BufferedWriter(writerStream);
 	    CsvWriter cwriter = new CsvWriter(writer, ',');
 	    writeToExcel(cwriter,"CITY","AVERAGECON","EXCSTANDARDRATE");

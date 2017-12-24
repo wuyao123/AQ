@@ -15,7 +15,7 @@ public class ScaleFree {
 	
 	public static void main(String[] args) throws IOException {
 		//读取一个周期内的邻接矩阵
-		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("F://data//pathMarticCSV//pathMartic.csv"), "GBK");
+		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users/wuyao//graduation_project//data//pathMartic.csv"), "GBK");
 		BufferedReader marticCsv = new BufferedReader(marticIsr);
 		
 /*********************读取pathMartic文件，统计每个站点的出度、入度********************************************************************/
