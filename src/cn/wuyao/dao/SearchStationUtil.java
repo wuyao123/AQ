@@ -27,8 +27,9 @@ public class SearchStationUtil {
 	        ps = conn.prepareStatement(sql);// 实例化预编译语句
 	        rs = ps.executeQuery();// 执行查询，注意括号中不需要再加参数
 	        while (rs.next()) {
-	        	returnList.add("\"" + Integer.parseInt(rs.getString(1)) + rs.getString(2) + "\":[" + rs.getString(5) + "," + rs.getString(4) + "],");
+//	        	returnList.add("\"" + Integer.parseInt(rs.getString(1)) + rs.getString(2) + "\":[" + rs.getString(5) + "," + rs.getString(4) + "],");
 //	        	returnList.add("{name:\"" + Integer.parseInt(rs.getString(1)) + rs.getString(2) + "\",value:80},");
+				System.out.println(rs.getString(2));
 	        }
 	        print.print(returnList);
 		} catch (Exception e) {

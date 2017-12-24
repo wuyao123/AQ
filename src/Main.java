@@ -1,9 +1,10 @@
-import cn.wuyao.dao.CorrUtil;
+import cn.wuyao.dao.SearchStationUtil;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        CorrUtil c = new CorrUtil();
-        c.selectCorr();
+        SearchStationUtil c = new SearchStationUtil();
+        c.selectStation();
     }
 }
