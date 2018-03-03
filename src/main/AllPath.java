@@ -14,14 +14,14 @@ import util.GetCriticalPath;
 public class AllPath {
 
 	public static void main(String[] args) throws IOException {
-		String STATIONID = "11";
+		String STATIONID = "21";
 		//冬季
-		String STATIONNAME = "SJZWinter";
+		String STATIONNAME = "CZ";
 		//读取所有监测站信息
 		InputStreamReader stationIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//station1.csv"), "GBK");
 		BufferedReader stationCsv = new BufferedReader(stationIsr);
 		//读取一个周期内的邻接矩阵
-		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMarticWinter.csv"), "GBK");
+		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMartic.csv"), "GBK");
 		BufferedReader marticCsv = new BufferedReader(marticIsr);
 		File path = new File("//Users//wuyao//graduation_project//newData//pathTXT//path.txt");
 		path.createNewFile();//创建新文件
@@ -127,7 +127,7 @@ public class AllPath {
 			vals.add(APTM.get(key));
 		}
 //		System.out.println(vals);
-		writeToExcelContent(cwriter, node1, vals, initMatric);
+		writeToExcelContent(cwriter, node1, vals, initMatric, count);
 	}
 /********************************************************结束****************************************************************/
 
@@ -141,7 +141,7 @@ public class AllPath {
 		cwriter.endRecord();
 		cwriter.flush();
 	}
-	private static void writeToExcelContent(CsvWriter cwriter, String start, List<String> vals, String initMatric) throws IOException {
+	private static void writeToExcelContent(CsvWriter cwriter, String start, List<String> vals, String initMatric, int count) throws IOException {
 		cwriter.write(start);
 		for(String val : vals){
 			int sum = 0;

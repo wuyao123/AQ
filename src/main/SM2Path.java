@@ -13,7 +13,7 @@ public class SM2Path {
     // 遍历APTM**文件，统计出值重复的边
     public static void main(String[] args) throws IOException {
         //冬季
-        String CSVNAME = "SJZWinter";
+        String CSVNAME = "CZ";
         //读取APTM**文件
         InputStreamReader hebeiIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//ATPM//ATPM"+CSVNAME+".csv"), "GBK");
         BufferedReader ATPMCsv = new BufferedReader(hebeiIsr);
@@ -50,7 +50,7 @@ public class SM2Path {
             String[] curLineArray = ATPMLine1.split(",");
             String key = curLineArray[0];
             for (int i=1;i<curLineArray.length;i++){
-                if(vals1.contains(curLineArray[i])){
+                if(vals.contains(curLineArray[i])){
                     System.out.println(curLineArray[i]+":"+key+","+stations[i]);
                 }
             }
