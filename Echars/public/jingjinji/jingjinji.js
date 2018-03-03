@@ -51,7 +51,7 @@ series.push({
         }
     }
 });
-linesTS.forEach(function(item,i){
+linesHS.forEach(function(item,i){
     series.push({
         name: 'line',
         type: 'lines',

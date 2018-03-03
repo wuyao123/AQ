@@ -29,7 +29,10 @@ public class DateCollection {
 		
 		//程序开始时间
 		Date stratDate = new Date();
-		
+
+		String STATIONNAME = "Winter";
+		String CITYID = "";
+
 		//读取所有监测站信息
 		InputStreamReader stationIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//station1.csv"), "GBK");
 		BufferedReader stationCsv = new BufferedReader(stationIsr);
@@ -40,16 +43,16 @@ public class DateCollection {
 		InputStreamReader corrAndDisIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//switchCorr.csv"), "GBK");
 		BufferedReader corrAndDisCsv = new BufferedReader(corrAndDisIsr);
 		//将路径数据写入到allLines***文件中
-		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//linesCSV//allLines.csv"),"GBK");
+		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//linesCSV//allLines"+STATIONNAME+".csv"),"GBK");
 	    BufferedWriter writer = new BufferedWriter(writerStream);
 	    CsvWriter cwriter = new CsvWriter(writer, ',');
 	    writeToExcel(cwriter,"TIME","LINE");
 	    //将整个周期的路径映射到邻接矩阵中
-	    OutputStreamWriter writerStream1 = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMartic.csv"),"GBK");
+	    OutputStreamWriter writerStream1 = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMartic"+STATIONNAME+".csv"),"GBK");
 	    BufferedWriter writer1 = new BufferedWriter(writerStream1);
 	    CsvWriter cwriter1 = new CsvWriter(writer1, ',');
 	    //将整个周期的路径出现次数映射到邻接矩阵中
-	    OutputStreamWriter writerStream2 = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathNumMartic.csv"),"GBK");
+	    OutputStreamWriter writerStream2 = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathNumMartic"+STATIONNAME+".csv"),"GBK");
 	    BufferedWriter writer2 = new BufferedWriter(writerStream2);
 	    CsvWriter cwriter2 = new CsvWriter(writer2, ',');
 /***************************************初始化存储边权值的矩阵、记录次数的矩阵***************************************************/	    
@@ -144,7 +147,7 @@ public class DateCollection {
 					//将风向图中的标识符转换为角度
 					String angle = switchWindVector.SWV(valis[6]);
 					// Double.parseDouble(valjs[3]) > Double.parseDouble(valis[3]) && Double.parseDouble(valjs[4]) < Double.parseDouble(valis[4])
-					if(D > 10 && D <= 40 && !angle.equals("NULL") && Double.parseDouble(valjs[3]) > Double.parseDouble(valis[3])){
+					if(D > 10 && D <= 40 && !angle.equals("NULL") && Double.parseDouble(valjs[3]) < Double.parseDouble(valis[3])){
 						//计算两个监测站的角度
 						Double stationWithVector = switchWindVector.Angle(valis[4], valis[3], valjs[4], valjs[3], angle);
 						if(stationWithVector > 0 && stationWithVector < 80){

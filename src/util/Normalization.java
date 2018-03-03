@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 参数标准化
+ * */
 public class Normalization {
 	
 	//计算各个因素的平均值，最大值，最小值

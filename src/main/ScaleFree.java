@@ -15,7 +15,7 @@ public class ScaleFree {
 	
 	public static void main(String[] args) throws IOException {
 		//读取一个周期内的邻接矩阵
-		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users/wuyao//graduation_project//data//pathMartic.csv"), "GBK");
+		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users/wuyao//graduation_project//data//pathMarticCSV//pathMartic.csv"), "GBK");
 		BufferedReader marticCsv = new BufferedReader(marticIsr);
 		
 /*********************读取pathMartic文件，统计每个站点的出度、入度********************************************************************/
@@ -64,7 +64,7 @@ public class ScaleFree {
 				continue;
 			}
 //			System.out.println("["+key+","+numMap.get(key)/154+"],");
-//			System.out.print(numMap.get(key)/154+",");
+//			System.out.println(numMap.get(key)/154);   // 计算度概率分布
 		}
 		double sum = 0.0;
 		for(Integer key : numMap.keySet()){
@@ -72,8 +72,8 @@ public class ScaleFree {
 				continue;
 			}
 			sum += numMap.get(key)/154;
-//			System.out.println("["+key+","+sum+"],");
-			System.out.print(sum+" ");
+//			System.out.println("["+key+","+sum+"],");  // 计算度累计概率
+//			System.out.print(sum+" ");
 		}
 /********************************************************结束****************************************************************/ 
 	}
