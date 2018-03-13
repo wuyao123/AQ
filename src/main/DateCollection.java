@@ -30,7 +30,7 @@ public class DateCollection {
 		//程序开始时间
 		Date stratDate = new Date();
 
-		String STATIONNAME = "Winter";
+		String STATIONNAME = "";
 		String CITYID = "";
 
 		//读取所有监测站信息
