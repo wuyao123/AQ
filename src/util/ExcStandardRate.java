@@ -25,13 +25,14 @@ public class ExcStandardRate {
 		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//ExcStandardRate.csv"),"GBK");
 	    BufferedWriter writer = new BufferedWriter(writerStream);
 	    CsvWriter cwriter = new CsvWriter(writer, ',');
-	    writeToExcel(cwriter,"CITY","AVERAGECON","EXCSTANDARDRATE");
+	    writeToExcel(cwriter,"CITY","AVERAGECON","EXCSTANDARDRATE","DAYNUM");
 	    
 		String hebeiLine = hebeiCsv.readLine();
 		Map<String, List<Integer>> dateMap = new HashMap<String, List<Integer>>();
 		while((hebeiLine = hebeiCsv.readLine()) != null){
 			String[] curLineArray = hebeiLine.split(",");
-			String key = curLineArray[1];
+			//String key = curLineArray[1];  //按地区统计超标率
+			String key = curLineArray[3] + curLineArray[2];  //按站点统计超标率
 			if(curLineArray[6].equals("NULL")){
 				continue;
 			}
@@ -43,7 +44,7 @@ public class ExcStandardRate {
 				 */
 				dateMap.get(key).set(0, dateMap.get(key).get(0) + value);
 				dateMap.get(key).set(1, dateMap.get(key).get(1) + 1);
-				if(value >= 50){
+				if(value >= 100){
 					dateMap.get(key).set(2, dateMap.get(key).get(2) + 1);
 				}
 			}else{
@@ -58,14 +59,15 @@ public class ExcStandardRate {
 			Double value = Double.parseDouble(dateMap.get(key).get(0) +"");
 			int num = dateMap.get(key).get(1);
 			Double overNum = Double.parseDouble(dateMap.get(key).get(2) + "");
-			writeToExcel(cwriter,key,value/num+"",overNum/num+"");
+			writeToExcel(cwriter,key,value/num+"",overNum/24/365+"", overNum/24+"");
 		}
 	}
 
-	private static void writeToExcel(CsvWriter cwriter, String string, String string2, String string3) throws IOException {
+	private static void writeToExcel(CsvWriter cwriter, String string, String string2, String string3, String string4) throws IOException {
 		cwriter.write(string);
 		cwriter.write(string2);
 		cwriter.write(string3);
+		cwriter.write(string4);
 		cwriter.endRecord();
 		cwriter.flush();
 	}

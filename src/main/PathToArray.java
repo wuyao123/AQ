@@ -33,15 +33,15 @@ public class PathToArray {
 		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//pathMarticCSV//pathMartic.csv"), "GBK");
 		BufferedReader marticCsv = new BufferedReader(marticIsr);
 		//读取以一个城市为起点的所有路径
-		InputStreamReader pathIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//linesCSV//allLinesHS.csv"), "GBK");
+		InputStreamReader pathIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//linesCSV//allLinesSJZ.csv"), "GBK");
 		BufferedReader pathCsv = new BufferedReader(pathIsr);
-		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMarticHS.csv"),"GBK");
+		OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMarticSJZ.csv"),"GBK");
 	    BufferedWriter writer = new BufferedWriter(writerStream);
 	    CsvWriter cwriter = new CsvWriter(writer, ',');
-		File pathFile = new File("//Users//wuyao//graduation_project//newData//linesTXT//pathDataHS.txt");
+		File pathFile = new File("//Users//wuyao//graduation_project//newData//linesTXT//pathDataSJZ.txt");
 		pathFile.createNewFile();//创建新文件
 		BufferedWriter out = new BufferedWriter(new FileWriter(pathFile)); 
-		File pathNum = new File("//Users//wuyao//graduation_project//newData//pathTXT//pathNumHS.txt");
+		File pathNum = new File("//Users//wuyao//graduation_project//newData//pathTXT//pathNumSJZ.txt");
 		pathNum.createNewFile();//创建新文件
 		BufferedWriter pathNumOut = new BufferedWriter(new FileWriter(pathNum)); 
 		File allPath = new File("//Users//wuyao//graduation_project//newData//pathTXT//allPath.txt");
@@ -159,7 +159,6 @@ public class PathToArray {
 				continue;
 			}else{
 				for (String str : sl) {
-					System.out.print(str+" ");
 					strs += str + ",";
 				}
 				System.out.println();
