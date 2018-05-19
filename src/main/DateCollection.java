@@ -147,7 +147,7 @@ public class DateCollection {
 					//将风向图中的标识符转换为角度
 					String angle = switchWindVector.SWV(valis[6]);
 					// Double.parseDouble(valjs[3]) > Double.parseDouble(valis[3]) && Double.parseDouble(valjs[4]) < Double.parseDouble(valis[4])
-					if(D > 10 && D <= 40 && !angle.equals("NULL") && Double.parseDouble(valjs[3]) < Double.parseDouble(valis[3])){
+					if(D > 10 && D <= 40 && !angle.equals("NULL") && Double.parseDouble(valjs[3]) > Double.parseDouble(valis[3])){
 						//计算两个监测站的角度
 						Double stationWithVector = switchWindVector.Angle(valis[4], valis[3], valjs[4], valjs[3], angle);
 						if(stationWithVector > 0 && stationWithVector < 80){
@@ -248,7 +248,11 @@ public class DateCollection {
 	private static void writeToExcelContent2(CsvWriter cwriter, String start, Map<String, Double> map) throws IOException {
 		cwriter.write(start);
 		for(String content : map.keySet()){
-			cwriter.write(map.get(content)+"");
+//			if(map.get(content) < 100.0 || map.get(content) > 1000.0){ //根据权值筛选
+//				cwriter.write(0.0+"");
+//			}else {
+				cwriter.write(map.get(content) + "");
+//			}
 		}
 		cwriter.endRecord();
 		cwriter.flush();

@@ -59,7 +59,7 @@ public class ExcStandardRate {
 			Double value = Double.parseDouble(dateMap.get(key).get(0) +"");
 			int num = dateMap.get(key).get(1);
 			Double overNum = Double.parseDouble(dateMap.get(key).get(2) + "");
-			writeToExcel(cwriter,key,value/num+"",overNum/num+"", overNum/24+"");
+			writeToExcel(cwriter,key,value/num+"",overNum/24/365+"", overNum/24+"");
 		}
 	}
 

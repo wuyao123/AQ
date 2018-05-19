@@ -54,7 +54,6 @@ public class PageRank {
             line = linkinput.readLine();
         }
         linkinput.close();
-        System.out.println("链接总数为：" + total);
         if (total > 0) {
             // pageRank[]存放PR值
             float[] pageRank = new float[total + 1];

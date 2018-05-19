@@ -52,7 +52,7 @@ series.push({
         }
     }
 });
-criticalPath.forEach(function(item,i){
+allPath.forEach(function(item,i){
     series.push({
         name: 'line',
         type: 'lines',
@@ -71,11 +71,8 @@ criticalPath.forEach(function(item,i){
     });
 });
 option = {
-    backgroundColor: '#404a59',
+    backgroundColor: '#fff',
     title: {
-        text: '河北省主要城市空气质量',
-        subtext: 'data from PM25.in',
-        sublink: 'http://www.pm25.in',
         x:'center',
         textStyle: {
             color: '#fff'
@@ -84,7 +81,7 @@ option = {
     tooltip: {
         trigger: 'item',
         formatter: function (params) {
-            return params.name + ' : ' + params.value[2];
+            return params.name;
         }
     },
     legend: {
@@ -117,11 +114,11 @@ option = {
         roam: true,//可缩放
         itemStyle: {
             normal: {
-                areaColor: '#323c48',
+                areaColor: '#fff',
                 borderColor: '#111'
             },
             emphasis: {
-                areaColor: '#2a333d'
+                areaColor: '#fff'
             }
         }
     },

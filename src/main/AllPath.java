@@ -14,14 +14,14 @@ import util.GetCriticalPath;
 public class AllPath {
 
 	public static void main(String[] args) throws IOException {
-		String STATIONID = "21";
+		String STATIONID = "22";
 		//冬季
-		String STATIONNAME = "CZ";
+		String STATIONNAME = "LF";
 		//读取所有监测站信息
 		InputStreamReader stationIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//data//station1.csv"), "GBK");
 		BufferedReader stationCsv = new BufferedReader(stationIsr);
 		//读取一个周期内的邻接矩阵
-		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathMartic.csv"), "GBK");
+		InputStreamReader marticIsr = new InputStreamReader(new FileInputStream("//Users//wuyao//graduation_project//newData//pathMarticCSV//pathNumMartic.csv"), "GBK");
 		BufferedReader marticCsv = new BufferedReader(marticIsr);
 		File path = new File("//Users//wuyao//graduation_project//newData//pathTXT//path.txt");
 		path.createNewFile();//创建新文件
@@ -48,7 +48,7 @@ public class AllPath {
 			String[] curLineArray = martic.split(",");
 			String start = curLineArray[0];
 			for (int i = 1; i < curLineArray.length; i++) {
-				if(curLineArray[i].equals("1.0")){
+				if(curLineArray[i].equals("0.0")){
 					continue;
 				}
 				pathList.add(start + ",,," + stationList.get(i-1) + ",,," + curLineArray[i]);
@@ -148,7 +148,7 @@ public class AllPath {
 			for(char c : val.toCharArray()){
 				if (c == '1') sum++;
 			}
-			if( sum >= 2){
+			if( sum >= count/3.0){
 				int newVal = Integer.parseInt(val,2);
 				cwriter.write(newVal+"");
 //				cwriter.write("'"+val);

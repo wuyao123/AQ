@@ -160,14 +160,12 @@ linesHS.forEach(function(item,i){
 //     });
 // });
 option = {
-    backgroundColor: '#404a59',
+    backgroundColor: '#fff',
     title: {
-        text: '河北省主要城市空气质量',
-        subtext: 'data from PM25.in',
-        sublink: 'http://www.pm25.in',
+        text: '河北省主要城市大气污染物传播网络图',
         x:'center',
         textStyle: {
-            color: '#fff'
+            color: '#000'
         }
     },
     tooltip: {
@@ -206,11 +204,11 @@ option = {
         roam: true,//可缩放
         itemStyle: {
             normal: {
-                areaColor: '#323c48',
+                areaColor: '#fff',
                 borderColor: '#111'
             },
             emphasis: {
-                areaColor: '#2a333d'
+                areaColor: '#fff'
             }
         }
     },
